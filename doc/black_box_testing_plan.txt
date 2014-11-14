@@ -1,0 +1,42 @@
+
+##################
+# Data Generator #
+##################
+
+# Functional Testing #
+
+Test with various sizes of data.  0 - several thousand.  Use a valid output file name.  Test creating a new file, and overwriting old file.  Test that the distribution of values produced is approximately uniform over the space of signed integers using a chi-squared test.
+
+# Dirty Testing #
+
+Negative sizes of data.  Invalid filenames.  Files that exist, but the user does not have permissions to overwrite.  Filenames in directories in which the user does not have permissions to create files.
+
+# Load Testing #
+
+Test huuuuuuuge numbers until it breaks.
+
+# Performance Testing #
+
+Test how well the performance scales with amount of data requested.  Graph the performance as a function of output size, and create a regression model.
+
+###############
+# Data Sorter #
+###############
+
+# Functional Testing #
+
+Ensure that both variants succeed in sorting generated data of various sizes; 0 - several thousand.  Ensure that when both variants fail, the output file is not generated.  Ensure that both variants fail when set to failure probability of 1.  Ensure that it times out when the timeout is set very low.  Ensure that the probability of failure increases as the size of the input increases, and as the failure probability increases.  Graph failure probability as a function of the memory error probability for various input sizes, and try to determine a relationship between the size of the input and the number of memory accesses, and ensure that this relationship is consistent with the algorithms specified for each variant.
+
+# Dirty Testing #
+
+Invalid input.  Invalid failure probabilities.  Invalid filenames.  Files that exist, but the user does not have permissions to read/write.  Filenames in directories in which the user does not have permissions to create files.  Invalid timeout.
+
+# Load Testing #
+
+Test huuuuuuuuge files until it breaks.  Test both variants, and find limitations on both, if possible.
+
+# Performance Testing #
+
+Test how well the performance scales with the amount of data to be sorted.  Graph time taken vs. input size for each variant, and check to see if the regression model is consistent with the sorting algorithms that were specified.
+
+

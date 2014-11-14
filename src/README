@@ -1,0 +1,27 @@
+This is my 422 project 1.
+
+It can all be compiled and run using the makefile.
+Change any of the values in the makefile to change the runtime
+command line parameters.
+
+make build_run will recompile everything and run the program with
+the specified arguments.
+
+make run will run the program assuming everything has already 
+been compiled.
+
+Class descriptions:
+-AT is the acceptance test. It ensures that a given list is sorted 
+in ascending order
+-DataSorter is the class that starts the calls to the sorting
+and scheduling threads.
+-Executor is a threads which starts and watches the sorting threads.
+-Primary is a heapsort implementation
+-Secondary is a wrapper for a JNI insertion sort implementation
+-SecondaryDriver is a driver class to run the secondary sorting thread.
+-Watchdog is a timer task that watches a thread and kills it if it
+takes longer than a specified time.
+-DataGenerator creates a list or random integers and stores it in a file.
+
+This is only runnable in Linux environments, as the JNI headers included
+are for x86 Linux machines. 
