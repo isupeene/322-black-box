@@ -3,4 +3,5 @@
 cd $(dirname $0)/src
 make
 cd ../test
-python *.py
+python *test.py
+
