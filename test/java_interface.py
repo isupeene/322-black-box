@@ -37,7 +37,7 @@ def invoke_java(program, *args):
 		.format(CLASSPATH, LIBRARY_PATH, program, " ".join([str(s) for s in args])),
 		stdout=subprocess.PIPE,
 		shell=True
-	).communicate()[0]
+	).communicate()
 
 def invoke_data_generator(output_file, number_of_values):
 	return invoke_java(DATA_GENERATOR, output_file, number_of_values)
@@ -66,7 +66,7 @@ def sort_data(values, primary_failure_rate=0, secondary_failure_rate=0, timeout=
 			input_file.write(str(value) + "\n")
 		input_file.close()
 
-		output_text = invoke_data_sorter(DATA_SORTER_INPUT, DATA_SORTER_OUTPUT, primary_failure_rate, secondary_failure_rate, timeout)
+		output_text, _ = invoke_data_sorter(DATA_SORTER_INPUT, DATA_SORTER_OUTPUT, primary_failure_rate, secondary_failure_rate, timeout)
 		if "System failed" in output_text:
 			return SortingResult.system_failed()
 		elif "Primary failed" in output_text:
