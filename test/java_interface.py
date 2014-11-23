@@ -36,6 +36,7 @@ def invoke_java(program, *args):
 		"java -classpath {} -Djava.library.path={} {} {}"
 		.format(CLASSPATH, LIBRARY_PATH, program, " ".join([str(s) for s in args])),
 		stdout=subprocess.PIPE,
+		stderr=subprocess.PIPE,
 		shell=True
 	).communicate()
 
